@@ -16,8 +16,7 @@ pipeline {
     }
     stage('Run eureka application') {
       steps {
-              sh 'cd eureka-registry-service'
-              sh 'nohup java -jar target/eureka-registry-service-0.0.1-SNAPSHOT.jar &'
+              sh 'nohup java -jar eureka-registry-service/target/eureka-registry-service-0.0.1-SNAPSHOT.jar &'
             }
     }
   }
