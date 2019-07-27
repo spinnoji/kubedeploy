@@ -9,7 +9,6 @@ pipeline {
     }
     stage('Build Project and Generate Docker Images') {
       steps {
-        sh 'cd /var/lib/jenkins/workspace/sample-pipeline/eureka-registry-service'
         sh 'mvn -B -DskipTests clean package'
         sh 'echo $USER'
         sh 'echo whoami'
