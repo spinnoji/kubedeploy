@@ -17,6 +17,8 @@
 
     <modules>
         <module>eureka-registry-service</module>
+        <module>eureka-zuul-gateway</module>
+        <module>inventory-mgmt-service</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
