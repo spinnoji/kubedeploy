@@ -28,7 +28,7 @@ pipeline {
           steps {
                   sh 'java -jar inventory-mgmt-service/target/inventory-mgmt-service-0.0.1-SNAPSHOT.jar'
                 }
-          }
+          
         }
   }
 }
