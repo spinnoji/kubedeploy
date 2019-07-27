@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="eureka-registry-service" />
+        <module name="sample-model-mapper" />
+        <module name="eureka-zuul-gateway" />
+        <module name="inventory-management-items" />
+        <module name="inventory-mgmt-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka-registry-service" target="1.8" />
+      <module name="eureka-zuul-gateway" target="1.8" />
+      <module name="inventory-management-items" target="1.8" />
+      <module name="inventory-mgmt-service" target="1.8" />
+      <module name="sample-model-mapper" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="eureka-registry-service" options="-parameters" />
+      <module name="eureka-zuul-gateway" options="-parameters" />
+      <module name="inventory-management-items" options="-parameters" />
+      <module name="inventory-mgmt-service" options="-parameters" />
+      <module name="sample-model-mapper" options="-parameters" />
+    </option>
+  </component>
+</project>
