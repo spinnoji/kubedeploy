@@ -18,16 +18,10 @@ pipeline {
       steps {
          withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
               sh 'nohup java -jar eureka-registry-service/target/eureka-registry-service-0.0.1-SNAPSHOT.jar &'
-              sleep(time:60,unit:"SECONDS")
+              sleep(time:30,unit:"SECONDS")
+              sh 'nohup java -jar eureka-zuul-gateway/target/eureka-zuul-gateway-0.0.1-SNAPSHOT.jar &'
             }
       }
     }
-    stage('Run Zuul application') {
-          steps {
-             withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
-                  sh 'nohup java -jar eureka-registry-service/target/eureka-zuul-gateway-0.0.1-SNAPSHOT.jar &'
-                }
-          }
-        }
   }
 }
