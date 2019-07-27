@@ -20,8 +20,8 @@ pipeline {
               sh 'nohup java -jar eureka-registry-service/target/eureka-registry-service-0.0.1-SNAPSHOT.jar &'
               sleep(time:30,unit:"SECONDS")
               sh 'nohup java -jar eureka-zuul-gateway/target/eureka-zuul-gateway-0.0.1-SNAPSHOT.jar &'
-              sleep(time:30,unit:"SECONDS")
               sh 'nohup java -jar inventory-mgmt-service/target/inventory-mgmt-service-0.0.1-SNAPSHOT.jar &'
+              sh 'nohup java -jar inventory-management-items/target/inventory-management-items-0.0.1-SNAPSHOT.jar &'
             }
       }
     }
