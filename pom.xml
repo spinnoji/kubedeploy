@@ -10,7 +10,7 @@
     </parent>
     <packaging>pom</packaging>
     <groupId>com.inventory</groupId>
-    <artifactId>eureka-registry-service</artifactId>
+    <artifactId>eureka-registry-service-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>eureka-registry-service</name>
     <description>Demo project for Spring Boot</description>
