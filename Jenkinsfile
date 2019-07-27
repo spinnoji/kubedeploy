@@ -26,8 +26,7 @@ pipeline {
     }
     stage('Run inventory application') {
           steps {
-             withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
-                  sh 'nohup java -jar inventory-mgmt-service/target/inventory-mgmt-service-0.0.1-SNAPSHOT.jar &'
+                  sh 'java -jar inventory-mgmt-service/target/inventory-mgmt-service-0.0.1-SNAPSHOT.jar'
                 }
           }
         }
