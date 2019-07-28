@@ -23,5 +23,15 @@ pipeline {
                  sh 'docker push 092390458462.dkr.ecr.us-west-2.amazonaws.com/inventory-management-items'
               }
     }
+    stage('Run docker images on kubernetes cluster') {
+              steps {
+                node('prod'){
+                checkout scm
+                 sh 'kubectl apply -f deployment.yaml'
+                 sh 'kubectl apply -f service.yaml'
+                 sh 'kubectl apply -f ingress.yaml'
+                }
+              }
+            }
   }
 }
