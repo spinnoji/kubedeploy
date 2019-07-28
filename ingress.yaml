@@ -15,7 +15,7 @@ spec:
             backend:
               serviceName: "inventory-mgmt-service"
               servicePort: 8085
-          - path: /branch/*
+          - path: /item/*
             backend:
               serviceName: "inventory-management-items"
               servicePort: 8091
