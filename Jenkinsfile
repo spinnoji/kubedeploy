@@ -16,11 +16,11 @@ pipeline {
     }
     stage('Push images to aws ecr'){
               steps {
-                 sh 'docker tag inventory-mgmt-service:latest 092390458462.dkr.ecr.us-west-2.amazonaws.com/inventory-mgmt-service'
-                 sh 'docker push 092390458462.dkr.ecr.us-west-2.amazonaws.com/inventory-mgmt-service'
+                 sh 'docker tag inventory-mgmt-service:latest 118463809662.dkr.ecr.ap-south-1.amazonaws.com/inventory-mgmt-service'
+                 sh 'docker push 118463809662.dkr.ecr.ap-south-1.amazonaws.com/inventory-mgmt-service'
 
-                 sh 'docker tag inventory-management-items:latest 092390458462.dkr.ecr.us-west-2.amazonaws.com/inventory-management-items'
-                 sh 'docker push 092390458462.dkr.ecr.us-west-2.amazonaws.com/inventory-management-items'
+                 sh 'docker tag inventory-management-items:latest 118463809662.dkr.ecr.ap-south-1.amazonaws.com/inventory-management-items'
+                 sh 'docker push 118463809662.dkr.ecr.ap-south-1.amazonaws.com/inventory-management-items'
               }
     }
     stage('Run docker images on kubernetes cluster') {
