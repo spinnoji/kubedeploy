@@ -14,16 +14,14 @@ pipeline {
         sh 'echo whoami'
       }
     }
-    stage('Run eureka application') {
-      steps {
-         withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
-              sh 'nohup java -jar eureka-registry-service/target/eureka-registry-service-0.0.1-SNAPSHOT.jar &'
-              sleep(time:30,unit:"SECONDS")
-              sh 'nohup java -jar eureka-zuul-gateway/target/eureka-zuul-gateway-0.0.1-SNAPSHOT.jar &'
-              sh 'nohup java -jar inventory-mgmt-service/target/inventory-mgmt-service-0.0.1-SNAPSHOT.jar &'
-              sh 'nohup java -jar inventory-management-items/target/inventory-management-items-0.0.1-SNAPSHOT.jar &'
-            }
-      }
+    stage('Push images to aws ecr'){
+              steps {
+                 sh 'docker tag inventory-mgmt-service:latest 092390458462.dkr.ecr.us-west-2.amazonaws.com/inventory-mgmt-service'
+                 sh 'docker push 092390458462.dkr.ecr.us-west-2.amazonaws.com/inventory-mgmt-service'
+
+                 sh 'docker tag inventory-management-items:latest 092390458462.dkr.ecr.us-west-2.amazonaws.com/inventory-management-items'
+                 sh 'docker push 092390458462.dkr.ecr.us-west-2.amazonaws.com/inventory-management-items'
+              }
     }
   }
 }

@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "inventory-ingress"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+  labels:
+    app: inventory-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /supplier/*
+            backend:
+              serviceName: "inventory-mgmt-service"
+              servicePort: 8085
+          - path: /branch/*
+            backend:
+              serviceName: "inventory-management-items"
+              servicePort: 8091

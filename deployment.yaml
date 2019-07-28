@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: inventory-mgmt-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: inventory-mgmt-service
+    spec:
+      containers:
+        - name: inventory-mgmt-service
+          image: 092390458462.dkr.ecr.us-west-2.amazonaws.com/inventory-mgmt-service:latest
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: inventory-management-items
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: inventory-management-items
+    spec:
+      containers:
+        - name: inventory-management-items
+          image: 092390458462.dkr.ecr.us-west-2.amazonaws.com/inventory-management-items:latest

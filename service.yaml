@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: inventory-mgmt-service
+  name: inventory-mgmt-service
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8085
+  selector:
+    app: inventory-mgmt-service
+  type: NodePort
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: inventory-management-items
+  name: inventory-management-items
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8091
+  selector:
+    app: inventory-management-items
+  type: NodePort
